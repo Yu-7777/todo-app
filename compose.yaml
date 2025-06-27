@@ -22,7 +22,6 @@ services:
     environment:
       DB_HOST: db
       DB_NAME: todo_app
-      PATH: "/rails/bin:$PATH"
     volumes:
       - .:/rails
       - bundle_cache:/usr/local/bundle
