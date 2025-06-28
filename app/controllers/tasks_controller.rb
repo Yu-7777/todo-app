@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     def create()
         @task = Task.new(task_params)
         if @task.save
-            redirect_to @task, notice: "作成完了"
+            redirect_to tasks_path, notice: "作成完了"
         else
             render :new, alert: "作成失敗"
         end
