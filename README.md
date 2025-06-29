@@ -13,7 +13,7 @@ docker compose build
 ```
 3. DB用意
 ```
-docker compose web run db:parepare
+docker compose run web rails db:parepare
 ```
 4. 実行
 ```
