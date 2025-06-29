@@ -1,24 +1,23 @@
-# README
+## 概要
+- 非常に簡単な todo-app
+- `index.html.erb`, `show.html.erb`, `edit.html.erb` はAIを使用して作成
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 実行手順
+1. クローン
+```
+git clone https://github.com/Yu-7777/todo-app.git
+```
+2. ビルド
+```
+docker compose build
+```
+3. DB用意
+```
+docker compose web run db:parepare
+```
+4. 実行
+```
+dokcer compose up
+```
+5. アクセス
+- localhost:3000 にて確認可能
