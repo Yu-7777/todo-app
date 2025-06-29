@@ -27,7 +27,6 @@ services:
       - bundle_cache:/usr/local/bundle
     stdin_open: true
     tty: true
-    command: ["./bin/rails", "server", "-b", "0.0.0.0"]
 
 volumes:
   mysql_data:
