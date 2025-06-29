@@ -1,55 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Todo App</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    h1 { color: #333; }
-    .task { 
-      border: 1px solid #ddd; 
-      padding: 10px; 
-      margin: 10px 0; 
-      border-radius: 5px; 
-    }
-    .completed { 
-      background-color: #f0f8f0; 
-      text-decoration: line-through; 
-    }
-    .new-task { 
-      background-color: #f9f9f9; 
-      padding: 15px; 
-      margin: 20px 0; 
-      border-radius: 5px; 
-    }
-    input, textarea { 
-      width: 100%; 
-      padding: 5px; 
-      margin: 5px 0; 
-    }
-    button { 
-      background-color: #007bff; 
-      color: white; 
-      padding: 8px 16px; 
-      border: none; 
-      border-radius: 3px; 
-      cursor: pointer; 
-    }
-    button:hover { background-color: #0056b3; }
-    .btn-edit { background-color: #28a745; }
-    .btn-delete { background-color: #dc3545; }
-    a { text-decoration: none; color: white; }
-  </style>
-</head>
-<body>
+<% content_for :title, "Todo App" %>
+
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h1 { color: #333; }
+  .task { 
+    border: 1px solid #ddd; 
+    padding: 10px; 
+    margin: 10px 0; 
+    border-radius: 5px; 
+  }
+  .completed { 
+    background-color: #f0f8f0; 
+    text-decoration: line-through; 
+  }
+  .new-task { 
+    background-color: #f9f9f9; 
+    padding: 15px; 
+    margin: 20px 0; 
+    border-radius: 5px; 
+  }
+  input, textarea { 
+    width: 100%; 
+    padding: 5px; 
+    margin: 5px 0; 
+  }
+  button { 
+    background-color: #007bff; 
+    color: white; 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 3px; 
+    cursor: pointer; 
+  }
+  button:hover { background-color: #0056b3; }
+  .btn-edit { background-color: #28a745; }
+  .btn-delete { background-color: #dc3545; }
+  a { text-decoration: none; color: white; }
+</style>
   <h1>📝 Todo App - タスク一覧</h1>
   
   <!-- 新規タスク作成ボタン -->
   <div class="new-task">
     <h3>新しいタスクを追加</h3>
     <p>
-      <button>
-        <%= link_to "新しいタスクを作成", new_task_path %>
-      </button>
+      <%= link_to "新しいタスクを作成", new_task_path, 
+          style: "background-color: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 3px; text-decoration: none; display: inline-block;" %>
     </p>
   </div>
 
@@ -94,20 +89,20 @@
           </span>
           
           <!-- 詳細表示 -->
-          <button style="background-color: #17a2b8; margin-left: 10px;">
-            <%= link_to "詳細", task_path(task) %>
-          </button>
+          <%= link_to "詳細", task_path(task), 
+              style: "background-color: #17a2b8; color: white; padding: 8px 16px; border-radius: 3px; text-decoration: none; display: inline-block; margin-left: 10px;" %>
           
           <!-- 編集 -->
-          <button class="btn-edit" style="margin-left: 5px;">
-            <%= link_to "編集", edit_task_path(task) %>
-          </button>
+          <%= link_to "編集", edit_task_path(task), 
+              style: "background-color: #28a745; color: white; padding: 8px 16px; border-radius: 3px; text-decoration: none; display: inline-block; margin-left: 5px;" %>
           
           <!-- 削除 -->
-          <button class="btn-delete" style="margin-left: 5px;">
-            <%= link_to "削除", task_path(task), method: :delete, 
-                data: { confirm: "本当に削除しますか？" } %>
-          </button>
+          <%= link_to "削除", task_path(task), 
+              data: { 
+                "turbo-method": "delete",
+                "turbo-confirm": "本当に削除しますか？"
+              },
+              style: "background-color: #dc3545; color: white; padding: 8px 16px; border-radius: 3px; text-decoration: none; display: inline-block; margin-left: 5px;" %>
         </div>
       </div>
     <% end %>
@@ -122,5 +117,3 @@
   <p style="text-align: center; color: #666;">
     <small>Todo App - 簡単なタスク管理アプリ</small>
   </p>
-</body>
-</html>
